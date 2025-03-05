@@ -107,6 +107,7 @@ Each Image will be built with a `rolling` tag, along with tags specific to it's 
 
 Container | Channel | Image
 --- | --- | ---
+[bees](https://github.com/tholinka/containers/pkgs/container/bees) | stable | ghcr.io/tholinka/bees
 [nfs-server](https://github.com/tholinka/containers/pkgs/container/nfs-server) | stable | ghcr.io/tholinka/nfs-server
 
 
