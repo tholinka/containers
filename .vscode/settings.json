@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"*.json5": "jsonc"
+	},
+	"yaml.schemaStore.enable": true,
+	"yaml.format.singleQuote": true
+}
