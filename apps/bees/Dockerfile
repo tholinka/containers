@@ -23,3 +23,5 @@ COPY --from=builder /bees/bin/bees /usr/local/bin/bees
 RUN apt-get update && apt-get -y --no-install-recommends install btrfs-progs bash && rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT ["/entrypoint.sh"]
+
+LABEL org.opencontainers.image.source="https://github.com/Zygo/bees"

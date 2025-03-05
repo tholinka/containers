@@ -5,3 +5,5 @@ ADD ./apps/btrfs-scrub/entrypoint.sh /
 RUN apk --no-cache add btrfs-progs
 
 ENTRYPOINT ["/entrypoint.sh"]
+
+LABEL org.opencontainers.image.source="https://btrfs.readthedocs.io"
