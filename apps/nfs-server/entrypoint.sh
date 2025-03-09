@@ -8,15 +8,21 @@ if [ -n "${MOUNT_DEVICE_0}" ]; then
 	MOUNT_ARGS_0=${MOUNT_ARGS_0:-'-rw,relatime,subvolid=5,subvol=/'}
 	MOUNT_LOC_0=${MOUNT_LOC_0:-'/srv/nfs/0'}
 
+	if [ ! -d "$MOUNT_LOC_0" ]; then
+		mkdir -p "$MOUNT_LOC_0"
+	fi
+
 	mount -o "$MOUNT_ARGS_0" "$MOUNT_DEVICE_0" "$MOUNT_LOC_0"
 fi
 
 # TODO add more? or somehow convert to an array?
 if [ -n "${MOUNT_DEVICE_1}" ]; then
-	btrfs device scan
-
 	MOUNT_ARGS_1=${MOUNT_ARGS_1:-'-rw,relatime,subvolid=5,subvol=/'}
 	MOUNT_LOC_1=${MOUNT_LOC_1:-'/srv/nfs/1'}
+
+	if [ ! -d "$MOUNT_LOC_1" ]; then
+		mkdir -p "$MOUNT_LOC_1"
+	fi
 
 	mount -o "$MOUNT_ARGS_1" "$MOUNT_DEVICE_1" "$MOUNT_LOC_1"
 fi
