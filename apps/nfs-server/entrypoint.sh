@@ -1,6 +1,25 @@
-#!/bin/sh
+#!/bin/bash
 
 set -Eeuo pipefail
+
+if [ -n "${MOUNT_DEVICE_0}" ]; then
+	btrfs device scan
+
+	MOUNT_ARGS_0=${MOUNT_ARGS_0:-'-rw,relatime,subvolid=5,subvol=/'}
+	MOUNT_LOC_0=${MOUNT_LOC_0:-'/srv/nfs/0'}
+
+	mount -o "$MOUNT_ARGS_0" "$MOUNT_DEVICE_0" "$MOUNT_LOC_0"
+fi
+
+# TODO add more? or somehow convert to an array?
+if [ -n "${MOUNT_DEVICE_1}" ]; then
+	btrfs device scan
+
+	MOUNT_ARGS_1=${MOUNT_ARGS_1:-'-rw,relatime,subvolid=5,subvol=/'}
+	MOUNT_LOC_1=${MOUNT_LOC_1:-'/srv/nfs/1'}
+
+	mount -o "$MOUNT_ARGS_1" "$MOUNT_DEVICE_1" "$MOUNT_LOC_1"
+fi
 
 echo "/etc/exports:"
 cat /etc/exports

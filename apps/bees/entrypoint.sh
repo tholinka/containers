@@ -1,5 +1,15 @@
 #!/bin/bash
 
+set -Eeuo pipefail
+
+if [ -n "${MOUNT_DEVICE}" ]; then
+	btrfs device scan
+
+	MOUNT_ARGS=${MOUNT_ARGS:-'-rw,relatime,subvolid=5,subvol=/'}
+
+	mount -o "$MOUNT_ARGS" "$MOUNT_DEVICE" /mnt
+fi
+
 # Check DB size
 # from bees.git/scripts/beesd
 {
@@ -10,7 +20,7 @@
 	readonly AL128K="$((128*1024))"
 	DB_SIZE="${DB_SIZE:-$((8192*AL128K))}"
 
-	if [ -d "$BEESHOME" ]; then
+	if [ ! -d "$BEESHOME" ]; then
 		mkdir "$BEESHOME"
 	fi
 

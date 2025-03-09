@@ -4,7 +4,7 @@ ENV LANG=en_US.utf8
 
 ENV NFS_SERVER_DEBUG="0"
 
-RUN apk add --no-cache nfs-utils
+RUN apk add --no-cache nfs-utils btrfs-progs bash
 
 EXPOSE 2049
 
