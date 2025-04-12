@@ -1,0 +1,6 @@
+---
+schemaVersion: '2.0.0'
+fileExistenceTests:
+  - name: manager
+    path: /app/entrypoint.sh
+    shouldExist: true
